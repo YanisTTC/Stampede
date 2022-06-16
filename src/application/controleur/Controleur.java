@@ -293,7 +293,7 @@ public class Controleur implements Initializable {
 		this.joueurPersonnage.vieProperty().addListener(obsVie);
 
 		//Création de l'inventaire
-		this.inventaireVue = new InventaireVue();
+		this.inventaireVue = new InventaireVue(env.getJoueur());
 
 		// Création d'un fantassin et de sa vue
 		this.robotFantassin = this.env.getRobotFantassin();

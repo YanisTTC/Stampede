@@ -94,5 +94,7 @@ local.properties
 # Ignore code-workspaces
 *.code-workspace
 
+.idea
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,visualstudiocode
 

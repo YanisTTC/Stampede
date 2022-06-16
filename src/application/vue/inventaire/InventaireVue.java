@@ -1,9 +1,11 @@
 package application.vue.inventaire;
 
+import application.modele.Joueur;
 import application.vue.Images;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -33,15 +35,26 @@ public class InventaireVue extends Pane{
 	private Pane panneauDeFondInventaire;
 	private TilePane panneauBordInventaire;
 	private TilePane panneauImagesInventaire;
+
+	private Joueur joueur;
 	private Font policeEcritureMincraft = Font.loadFont(getClass().getResourceAsStream(CheminPoliceMincraft), 42);
 
 	
-	public InventaireVue() {
+	public InventaireVue(Joueur joueur) {
 		super(new Pane());
+		this.joueur = joueur;
 		imagesObjetsInventaire = new Images(CheminRelatifObjets);
 		creerInventaireVue();
+		ajouterEvent();
 	}
-	
+
+	public void ajouterEvent(){
+		texteInv.setOnMouseClicked(mouseEvent -> {
+			if (mouseEvent.getButton() == MouseButton.PRIMARY) {
+				joueur.setEnMain(null);
+			}
+		});
+	}
 	public Images getImagesObjets() {
 		return imagesObjetsInventaire;
 	}
